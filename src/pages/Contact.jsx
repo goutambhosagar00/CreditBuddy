@@ -37,7 +37,9 @@ export default function Contact() {
           CreditBuddy is creating India’s first student-focused financial ecosystem — combining lending, learning, and earning into one platform.
           If you’re an angel investor, VC, or fintech enthusiast interested in our journey, we’d love to connect.
         </p>
-        <p style={{ marginTop: 16, fontWeight: 700 }}>Investor Relations: <a href="mailto:info@creditbuddy.in">info@creditbuddy.in</a></p>
+        <p style={{ marginTop: 16, fontWeight: 700 }}>Investor Relations: <a href="info@creditbuddy.org.in
+">info@creditbuddy.org.in
+</a></p>
       </section>
     </div>
   );

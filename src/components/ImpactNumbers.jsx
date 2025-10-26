@@ -31,7 +31,7 @@ export default function ImpactNumbers() {
               animate={{ count: c.value }}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              {c.value.toLocaleString()}
+              {c.value.toLocaleString()}+
             </motion.div>
             <div className="impact-label">{c.label}</div>
           </motion.div>
