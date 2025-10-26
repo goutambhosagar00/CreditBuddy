@@ -19,7 +19,7 @@ export default function About() {
             That’s why we built <strong>CreditBuddy</strong> — India’s first student-focused
             financial platform that helps you borrow smartly, learn about money, and earn confidently.
           </p>
-          <Link to="/waitlist" className="btn btn-primary">Join Us</Link>
+          <Link to="/join-waitlist" className="btn btn-primary">Join Us</Link>
         </div>
         <div className="about-hero-image">
           <img src={creditbuddy} alt="Students using CreditBuddy" />
@@ -76,7 +76,7 @@ export default function About() {
         <blockquote>
           “When I started CreditBuddy, I wasn’t thinking of building a startup — I wanted to solve a problem students face. CreditBuddy is the one friend every student wished they had — reliable, honest, and always there when you need them.”
         </blockquote>
-        <p className="founder-name">— [Your Name], Founder, CreditBuddy</p>
+        <p className="founder-name">— Dev, Founder, CreditBuddy</p>
       </section>
     </div>
   );

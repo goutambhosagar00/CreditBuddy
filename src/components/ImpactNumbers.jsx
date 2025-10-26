@@ -5,8 +5,8 @@ import { FaUserGraduate, FaRupeeSign, FaSmile } from "react-icons/fa";
 export default function ImpactNumbers() {
   const cards = [
     { value: 500, label: "Early Users", icon: <FaUserGraduate /> },
-    { value: 1000000, label: "Requests", icon: <FaRupeeSign /> },
-    { value: 95, label: "Beta Satisfaction", icon: <FaSmile /> }
+    { value: 100000, label: "Requests", icon: <FaRupeeSign /> },
+    { value: 70, label: "Beta Satisfaction", icon: <FaSmile /> }
   ];
 
   return (

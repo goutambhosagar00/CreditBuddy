@@ -31,9 +31,9 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="footer-socials">
-          <a href="#" aria-label="Instagram"><FaInstagram /></a>
-          <a href="#" aria-label="Twitter"><FaTwitter /></a>
-          <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="https://www.instagram.com/creditbuddy_official?utm_source=qr&igsh=ZzZuYXZ0NDgwb2x6" aria-label="Instagram"><FaInstagram /></a>
+          <a href="http://www.linkedin.com/in/debasishmallick077" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="/" aria-label="Twitter"><FaTwitter /></a>
         </div>
       </div>
     </motion.footer>
