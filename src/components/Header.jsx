@@ -1,16 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/icons/CB.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  // ✅ Detect click outside sidebar
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -23,24 +41,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="nav desktop-nav">
-            <NavLink to="/about" className="nav-link">
-              About Us
-            </NavLink>
-            <NavLink to="/features" className="nav-link">
-              Features
-            </NavLink>
-            <NavLink to="/how-it-works" className="nav-link">
-              How it Works
-            </NavLink>
-            <NavLink to="/blog" className="nav-link">
-              Blog
-            </NavLink>
-            <NavLink to="/contact" className="nav-link">
-              Contact
-            </NavLink>
-            <Link to="/join-waitlist" className="btn nav-cta">
-              Join Waitlist
-            </Link>
+            <NavLink to="/about" className="nav-link">About Us</NavLink>
+            <NavLink to="/features" className="nav-link">Features</NavLink>
+            <NavLink to="/how-it-works" className="nav-link">How it Works</NavLink>
+            <NavLink to="/blog" className="nav-link">Blog</NavLink>
+            <NavLink to="/contact" className="nav-link">Contact</NavLink>
+            <Link to="/join-waitlist" className="btn nav-cta">Join Waitlist</Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -54,28 +60,22 @@ export default function Header() {
       </header>
 
       {/* Overlay */}
-      {menuOpen && <div className="mobile-overlay" onClick={closeMenu}></div>}
+      {menuOpen && <div className="mobile-overlay"></div>}
 
       {/* Mobile Sidebar */}
-      <aside className={`mobile-nav ${menuOpen ? "open" : ""}`}>
-        <NavLink to="/about" className="nav-link" onClick={closeMenu}>
-          About Us
-        </NavLink>
-        <NavLink to="/features" className="nav-link" onClick={closeMenu}>
-          Features
-        </NavLink>
-        <NavLink to="/how-it-works" className="nav-link" onClick={closeMenu}>
-          How it Works
-        </NavLink>
-        <NavLink to="/blog" className="nav-link" onClick={closeMenu}>
-          Blog
-        </NavLink>
-        <NavLink to="/contact" className="nav-link" onClick={closeMenu}>
-          Contact
-        </NavLink>
-        <Link to="/join-waitlist" className="btn nav-cta" onClick={closeMenu}>
-          Join Waitlist
-        </Link>
+      <aside ref={menuRef} className={`mobile-nav ${menuOpen ? "open" : ""}`}>
+        {/* ✅ Close icon inside sidebar */}
+        <div className="sidebar-close-icon" onClick={() => setMenuOpen(false)}>
+          <FaTimes size={24} />
+        </div>
+
+        <NavLink to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</NavLink>
+        <NavLink to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>About Us</NavLink>
+        <NavLink to="/features" className="nav-link" onClick={() => setMenuOpen(false)}>Features</NavLink>
+        <NavLink to="/how-it-works" className="nav-link" onClick={() => setMenuOpen(false)}>How it Works</NavLink>
+        <NavLink to="/blog" className="nav-link" onClick={() => setMenuOpen(false)}>Blog</NavLink>
+        <NavLink to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</NavLink>
+        <Link to="/join-waitlist" className="btn nav-cta" onClick={() => setMenuOpen(false)}>Join Waitlist</Link>
       </aside>
     </>
   );

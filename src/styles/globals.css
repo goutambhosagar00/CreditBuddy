@@ -15,7 +15,7 @@ a{color:var(--accent);text-decoration:none;}
 .container{max-width:var(--container-max);margin:0 auto;padding:28px; }
 .container-section{max-width:var(--container-max);margin:0 auto;padding:28px 20px}
 
-.site-header {position:sticky;top:0;background:#fff;backdrop-filter:blur(6px);z-index:1000;border-bottom:1px solid #eef2ff;box-shadow:0 1px 0 rgba(0,0,0,0.1);}
+.site-header {position:sticky;top:0;background: white;backdrop-filter:blur(6px);z-index:1000;border-bottom:1px solid #eef2ff;box-shadow:0 1px 0 rgba(0,0,0,0.1);}
 .site-header-inner {max-width:var(--container-max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;}
 .brand {display:flex;align-items:center;gap:12px;}
 .brand-logo {height:44px;width:120px;}
@@ -74,6 +74,20 @@ a{color:var(--accent);text-decoration:none;}
   z-index: 1500;
 }
 
+/* Sidebar Close Icon */
+.sidebar-close-icon {
+  position: absolute;
+  top: 20px;
+  right: 200px;
+  cursor: pointer;
+  color: #001069;
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-close-icon:hover {
+  transform: rotate(90deg);
+}
 /* Hide desktop nav and show mobile icon */
 @media (max-width: 992px) {
   .desktop-nav {
